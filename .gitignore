@@ -1,0 +1,4 @@
+ceph/
+osds/
+ceph.tar
+.env
