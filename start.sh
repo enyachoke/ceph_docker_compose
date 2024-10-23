@@ -14,7 +14,7 @@ docker-compose exec mon1 ceph auth get client.bootstrap-osd -o /var/lib/ceph/boo
 docker-compose exec mon1 ceph auth get client.bootstrap-mds -o /var/lib/ceph/bootstrap-mds/ceph.keyring
 
 
-docker-compose up -d osd1 osd2 osd3
+docker-compose up -d osd1 osd2 osd3 osd4
 
 docker-compose up -d rgw1
 docker-compose up -d mds1
