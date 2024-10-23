@@ -42,7 +42,7 @@ services:
     container_name: "ceph-osd1"
     privileged: true
     image: quay.io/ceph/daemon:${CEPH_CONTAINER_VERSION}
-    command: "osd_directory"
+    command: "osd_directory_single"
     environment:
       LANG: ${LANG}
       TZ: ${TZ}
@@ -65,7 +65,7 @@ services:
     container_name: "ceph-osd2"
     privileged: true
     image: quay.io/ceph/daemon:${CEPH_CONTAINER_VERSION}
-    command: "osd_directory"
+    command: "osd_directory_single"
     environment:
       LANG: ${LANG}
       TZ: ${TZ}
@@ -86,7 +86,7 @@ services:
     container_name: "ceph-osd3"
     privileged: true
     image: quay.io/ceph/daemon:${CEPH_CONTAINER_VERSION}
-    command: "osd_directory"
+    command: "osd_directory_single"
     environment:
       LANG: ${LANG}
       TZ: ${TZ}
@@ -107,7 +107,7 @@ services:
     container_name: "ceph-osd4"
     privileged: true
     image: quay.io/ceph/daemon:${CEPH_CONTAINER_VERSION}
-    command: "osd_directory"
+    command: "osd_directory_single"
     environment:
       LANG: ${LANG}
       TZ: ${TZ}
