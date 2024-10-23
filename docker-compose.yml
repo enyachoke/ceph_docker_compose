@@ -102,6 +102,27 @@ services:
       cluster-net:
         ipv4_address: ${OSD3_IP}
     restart: always
+  
+  osd4:
+    pid: host
+    hostname: "ceph-osd4"
+    container_name: "ceph-osd4"
+    privileged: true
+    image: ceph/daemon:${CEPH_CONTAINER_VERSION}
+    command: "osd_directory"
+    environment:
+      LANG: ${LANG}
+      TZ: ${TZ}
+    volumes:
+      - ${VOLUMES_PATH}/ceph:/etc/ceph
+      - ${VOLUMES_PATH}/lib/:/var/lib/ceph/
+      - ${OSD_PATH}/osd4:/var/lib/ceph/osd
+    depends_on:
+      - mon1
+    networks:
+      cluster-net:
+        ipv4_address: ${OSD4_IP}
+    restart: always
     
   rgw1:
     image: ceph/daemon:${CEPH_CONTAINER_VERSION}
@@ -117,6 +138,7 @@ services:
       - osd1
       - osd2
       - osd3
+      - osd4
     networks:
       - cluster-net
     ports:
@@ -138,5 +160,6 @@ services:
       - osd1
       - osd2
       - osd3
+      - osd4
     networks:
       - cluster-net
